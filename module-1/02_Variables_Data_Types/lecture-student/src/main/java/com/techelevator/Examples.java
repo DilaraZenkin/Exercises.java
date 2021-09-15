@@ -5,7 +5,10 @@ public class Examples {
 	public static void main(String[] args) {
 		
 		// Variable declaration
-		int x;
+
+		//Datatype NameOfTheVariable;
+		//Stack: memory that holds your variables
+		int x;  // 32 bits, called "x"
 		
 		// Assignment statement
 		x = 3;
