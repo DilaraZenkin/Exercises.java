@@ -198,13 +198,13 @@ public class Exercises {
 	 max1020(11, 9) → 11
 	 */
 	public int max1020(int a, int b) {
-		if ((a >= b && a >= 10 && a <= 20) || (a >= 10 && a <= 20)) {
+		if ((a >= b && a >= 10 && a <= 20) || (b>a && a >= 10 && a <= 20)) {
 			return a;
-		} else if ((b >= a && b >= 10 && b <= 20) || (b >= 10 && b <= 20)) {
+		} else if (b >= a && b >= 10 && b <= 20) {
 			return b;
+		} else {
+			return 0;
 		}
-
-		return 0;
 	}
 
 	/*
@@ -278,9 +278,9 @@ public class Exercises {
      yourCakeAndEatItToo(11.00, false) → "special"
      */
 	public String yourCakeAndEatItToo(double mealAmount, boolean isBirthday) {
-		if ((mealAmount <= 10 && !isBirthday) || (mealAmount < 5 && isBirthday)) {
+		if ((mealAmount<5) || (mealAmount>=5 && mealAmount<=10 && !isBirthday)) {
 			return "standard";
-		} else if ((mealAmount <= 15 && mealAmount > 10 && !isBirthday) || (mealAmount > 5 && isBirthday)) {
+		} else if((mealAmount>=5 && mealAmount<=10 && isBirthday) || (mealAmount>=10 && mealAmount<=15 && !isBirthday)) {
 			return "special";
 		} else {
 			return "ginormous";
@@ -430,11 +430,11 @@ public class Exercises {
 	 teaParty(20, 6) → 2
 	 */
 	public int teaParty(int tea, int candy) {
-		if (tea >= 5 && candy >= 5) {
+		if (tea >= 5 && candy >= 5 && !(tea >= (2*candy)) && !(candy >= (2*tea))) {
 			return 1;
-		} else if ((tea >= (candy * 2) || candy >= (tea * 2))) {
+		} else if (((tea >= (2*candy)) && !(candy<=5)) || ((candy >= (2*tea)) && !(tea<=5))) {
 			return 2;
-		} else if (tea < 5 && candy < 5) {
+		} else if (tea < 5 || candy < 5) {
 			return 0;
 		}
 		return 0;
