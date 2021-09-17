@@ -1,7 +1,7 @@
 package com.techelevator;
 
 public class Exercises {
-	
+
 	/*
 	 1. Given an array of ints, return true if 6 appears as either the first or last element in the array. 
 	 The array will be length 1 or more.
@@ -10,7 +10,7 @@ public class Exercises {
 	 firstLast6([13, 6, 1, 2, 3]) → false
 	 */
 	public boolean firstLast6(int[] nums) {
-		return false;
+		return (nums[0] == 6 || nums[nums.length - 1] == 6);
 	}
 
 	/*
@@ -21,7 +21,8 @@ public class Exercises {
 	 sameFirstLast([1, 2, 1]) → true
 	 */
 	public boolean sameFirstLast(int[] nums) {
-		return false;
+
+		return ((nums[0] == nums[nums.length - 1]) && (nums.length) >= 1);
 	}
 
 	/*
@@ -29,7 +30,8 @@ public class Exercises {
 	 makePi() → [3, 1, 4]
 	 */
 	public int[] makePi() {
-		return new int[] {};
+
+		return new int[]{3, 1, 4};
 	}
 
 	/*
@@ -40,7 +42,8 @@ public class Exercises {
 	 commonEnd([1, 2, 3], [1, 3]) → true
 	 */
 	public boolean commonEnd(int[] a, int[] b) {
-		return false;
+
+		return ((a[0] == b[0]) || a[a.length - 1] == b[b.length - 1]);
 	}
 
 	/*
@@ -50,7 +53,8 @@ public class Exercises {
 	 sum3([7, 0, 0]) → 7
 	 */
 	public int sum3(int[] nums) {
-		return 0;
+
+		return (nums[0] + nums[1] + nums[2]);
 	}
 
 	/*
@@ -61,7 +65,7 @@ public class Exercises {
 	 rotateLeft3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] rotateLeft3(int[] nums) {
-		return new int[] {};
+		return new int[]{nums[1], nums[2], nums[0]};
 	}
 
 	/*
@@ -72,7 +76,7 @@ public class Exercises {
 	 reverse3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] reverse3(int[] nums) {
-		return new int[] {};
+		return new int[]{nums[2], nums[1], nums[0]};
 	}
 
 	/*
@@ -83,7 +87,8 @@ public class Exercises {
 	 maxEnd3([2, 11, 3]) → [3, 3, 3]
 	 */
 	public int[] maxEnd3(int[] nums) {
-		return new int[] {};
+
+		return new int[]{};
 	}
 
 	/*
@@ -94,7 +99,13 @@ public class Exercises {
 	 sum2([1, 1, 1, 1]) → 2
 	 */
 	public int sum2(int[] nums) {
-		return 0;
+		if (nums.length >= 2) {
+			return (nums[0] + nums[1]);
+		} else if (nums.length == 1) {
+			return nums[0];
+		} else {
+			return 0;
+		}
 	}
 
 	/*
@@ -105,7 +116,7 @@ public class Exercises {
 	 middleWay([5, 2, 9], [1, 4, 5]) → [2, 4]
 	 */
 	public int[] middleWay(int[] a, int[] b) {
-		return new int[] {};
+		return new int[]{a[1], b[1]};
 	}
 
 	/*
@@ -118,6 +129,7 @@ public class Exercises {
 	public int countEvens(int[] nums) {
 		return 0;
 	}
+
 
 	/*
 	 12. Return the sum of the numbers in the array, returning 0 for an empty array. Except the number 
@@ -142,7 +154,7 @@ public class Exercises {
 	public boolean has22(int[] nums) {
 		return false;
 	}
-	
+
 	/*
 	 14. Given an array of ints, return true if the array contains no 1's and no 3's.
 	 lucky13([0, 2, 4]) → true
@@ -162,5 +174,5 @@ public class Exercises {
 	public boolean sum28(int[] nums) {
 		return false;
 	}
-
 }
+
