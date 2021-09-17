@@ -198,15 +198,13 @@ public class Exercises {
 	 max1020(11, 9) → 11
 	 */
 	public int max1020(int a, int b) {
-		if ((a >= b && a >= 10 && a <= 20) || (b>a && a >= 10 && a <= 20)) {
+		if ((a > 10 && a <= 20 && a > b) || (a > 10 && a <= 20 && b>20)){
 			return a;
-		} else if (b >= a && b >= 10 && b <= 20) {
+		} else if ((b > 10 && b <= 20 && b > a) || (b > 10 && b <= 20 && a>20)) {
 			return b;
-		} else {
-			return 0;
 		}
+		return 0;
 	}
-
 	/*
 	 16. When squirrels get together for a party, they like to have cigars. A squirrel party is successful
 	 when the number of cigars is between 40 and 60, inclusive. Unless it is the weekend, in which case
@@ -222,6 +220,7 @@ public class Exercises {
 		}
 		return false;
 	}
+
 
 	/*
 	 17. You and your date are trying to get a table at a restaurant. The parameter "you" is the stylishness
@@ -278,9 +277,9 @@ public class Exercises {
      yourCakeAndEatItToo(11.00, false) → "special"
      */
 	public String yourCakeAndEatItToo(double mealAmount, boolean isBirthday) {
-		if ((mealAmount<5) || (mealAmount>=5 && mealAmount<=10 && !isBirthday)) {
+		if ((mealAmount < 5) || (mealAmount >= 5 && mealAmount <= 10 && !isBirthday)) {
 			return "standard";
-		} else if((mealAmount>=5 && mealAmount<=10 && isBirthday) || (mealAmount>=10 && mealAmount<=15 && !isBirthday)) {
+		} else if ((mealAmount >= 5 && mealAmount <= 10 && isBirthday) || (mealAmount >= 10 && mealAmount <= 15 && !isBirthday)) {
 			return "special";
 		} else {
 			return "ginormous";
@@ -333,8 +332,9 @@ public class Exercises {
 			return true;
 		} else if ((n <= 1 || n >= 10) && outsideMode) {
 			return true;
+		} else {
+			return false;
 		}
-		return false;
 	}
 
 	/*
@@ -430,14 +430,15 @@ public class Exercises {
 	 teaParty(20, 6) → 2
 	 */
 	public int teaParty(int tea, int candy) {
-		if (tea >= 5 && candy >= 5 && !(tea >= (2*candy)) && !(candy >= (2*tea))) {
-			return 1;
-		} else if (((tea >= (2*candy)) && !(candy<=5)) || ((candy >= (2*tea)) && !(tea<=5))) {
-			return 2;
-		} else if (tea < 5 || candy < 5) {
+		if (tea<5 || candy<5) {
 			return 0;
+		} else if((tea>=2*candy) || (candy>=2*tea)) {
+			return 2;
+		} else {
+			return 1;
 		}
-		return 0;
+
+
 	}
 
 
@@ -511,20 +512,17 @@ public class Exercises {
 	 luckySum(13, 13, 3) → 0
 	 */
 	public int luckySum(int a, int b, int c) {
-		if (a == 13)
-			return 0;
-		if (b == 13)
+		if (a == 13 && b != 13 && c != 13) {
+			return c;
+		} else if (b == 13 && a != 13 && c != 13) {
 			return a;
-		if (c == 13)
+		} else if (c == 13 && a != 13 && b != 13) {
 			return (a + b);
-		return (a + b + c);
+		} else if ((a == 13 && b == 13) || (a == 13 && c == 13) || (b == 13 && c == 13)) {
+			return 0;
+		} else {
+			return (a + b + c);
+		}
 	}
 }
-
-
-
-
-
-
-
 
