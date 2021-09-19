@@ -22,9 +22,9 @@ public class LinearConvert {
 		Double convertDoubleFeet = Double.parseDouble(convertString);
 
 		if(name.equalsIgnoreCase("m")) {
-			System.out.println((convertDoubleMeter * 3.2808399) + "f");
+			System.out.println((convertDoubleMeter * 3.2808399) + " feet");
 		} else if(name.equalsIgnoreCase("f")) {
-			System.out.println((convertDoubleFeet * 0.3048) + "m");
+			System.out.println((convertDoubleFeet * 0.3048) + " meter");
 		}
 
 	}

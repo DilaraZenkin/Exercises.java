@@ -22,11 +22,11 @@ public class TempConvert {
 		Double convertDoubleCelsius = Double.parseDouble(convertString);
 
 		if (name.equalsIgnoreCase("F")) {
-			System.out.println(((convertDoubleFahrenheit - 32) / 1.8) + "C");
+			System.out.println(((convertDoubleFahrenheit - 32) / 1.8) + " C");
 
 		} else if (name.equalsIgnoreCase("C")) {
 
-			System.out.println(((convertDoubleCelsius * 1.8) + 32) + "F");
+			System.out.println(((convertDoubleCelsius * 1.8) + 32) + " F");
 
 
 		}
