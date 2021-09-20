@@ -22,12 +22,12 @@ public class Fibonacci {
 			int firstNumber = 0;
 			int secondNumber = 1;
 
-			for (int i = 0; i < numberInt; i++) {
+			for (int i = 0; i <= numberInt; i++) {
 				if (i == firstNumber) {
 
-					System.out.println((firstNumber + " " + secondNumber + " "));
+					System.out.print((firstNumber + " " + secondNumber + " "));
 				} else if (i == firstNumber + secondNumber) {
-					System.out.println(i + "");
+					System.out.print(i + " ");
 					if (secondNumber >= firstNumber) {
 						firstNumber = i;
 					} else {
