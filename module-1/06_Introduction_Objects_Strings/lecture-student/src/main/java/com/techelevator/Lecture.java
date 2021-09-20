@@ -1,5 +1,8 @@
 package com.techelevator;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 public class Lecture {
 
 	public static void main(String[] args) {
@@ -14,6 +17,7 @@ public class Lecture {
 		 * is not the case for most classes */
 
 		/* create an new instance of String using a literal */
+		String name= "Tom";
 
 		
 		System.out.println();
@@ -23,6 +27,23 @@ public class Lecture {
 		System.out.println();
 
 
+String obligatory = "Hello World, You're awesome and I love you";
+char h = obligatory.charAt(10);
+String dString = obligatory.substring(10, 11);
+
+		 char[] charArray = obligatory.toCharArray();
+
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("enter here-->");
+		String userChoice = keyboard.nextLine();
+
+		// Immutable
+		obligatory= obligatory.toUpperCase();
+		obligatory.startsWith("HELLO");
+
+		if( userChoice.charAt(0) == 'C' || userChoice.charAt(0) == 'c') {
+
+		}
 		/* Other commonly used methods:
 		 *
 		 * endsWith
@@ -46,6 +67,10 @@ public class Lecture {
 
 		/* Double equals will compare to see if the two variables, hello1 and
 		 * hello2 point to the same object in memory. Are they the same object? */
+
+		String hello1 = new String("Hello");
+		System hello2 = new String("Hello");
+
 		if (hello1 == hello2) {
 			System.out.println("They are equal!");
 		} else {
