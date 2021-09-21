@@ -17,8 +17,12 @@ public class Lecture {
 		 * is not the case for most classes */
 
 		/* create an new instance of String using a literal */
+<<<<<<< HEAD
+		String name= "Tom";
+=======
 		String name = "Tom";
 		// String name = new String("Tom");
+>>>>>>> fb638b9a201fe0a579224f09ac385d27f38b60ad
 
 		
 		System.out.println();
@@ -79,6 +83,23 @@ public class Lecture {
 		// "Hello There Tom this is a long       sentence"
 
 
+String obligatory = "Hello World, You're awesome and I love you";
+char h = obligatory.charAt(10);
+String dString = obligatory.substring(10, 11);
+
+		 char[] charArray = obligatory.toCharArray();
+
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("enter here-->");
+		String userChoice = keyboard.nextLine();
+
+		// Immutable
+		obligatory= obligatory.toUpperCase();
+		obligatory.startsWith("HELLO");
+
+		if( userChoice.charAt(0) == 'C' || userChoice.charAt(0) == 'c') {
+
+		}
 		/* Other commonly used methods:
 		 *
 		 * endsWith
@@ -103,8 +124,13 @@ public class Lecture {
 		/* Double equals will compare to see if the two variables, hello1 and
 		 * hello2 point to the same object in memory. Are they the same object? */
 
+<<<<<<< HEAD
+		String hello1 = new String("Hello");
+		System hello2 = new String("Hello");
+=======
 		String hello1 = new String("Hello"); // 0xFACE
 		String hello2 = new String("Hello"); // 0xFADE
+>>>>>>> fb638b9a201fe0a579224f09ac385d27f38b60ad
 
 		if (hello1 == hello2) {
 			System.out.println("They are equal!");
