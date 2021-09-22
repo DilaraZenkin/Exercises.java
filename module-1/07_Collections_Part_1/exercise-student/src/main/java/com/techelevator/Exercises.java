@@ -1,6 +1,8 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class Exercises {
@@ -16,7 +18,12 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		List<String> fruit = new ArrayList<String>();
+
+		for (String fruits : stringArray) {
+			fruit.add(fruits);
+		}
+		return fruit;
 	}
 
 	/*
@@ -26,7 +33,8 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String[] myArray = stringList.toArray(new String[stringList.size()]);
+		return myArray;
 	}
 
 	/*
@@ -37,7 +45,15 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> fakeFruit = new ArrayList<String>();
+
+		for (String words : stringArray) {
+			if (words.length() != 4) {
+				fakeFruit.add(words);
+			}
+		}
+
+		return fakeFruit;
 	}
 
 	/*
@@ -47,7 +63,12 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> dividedNumbers = new ArrayList<Double>();
+
+		for (Integer numbers : intArray) {
+			dividedNumbers.add(numbers / 2.0);
+		}
+		return dividedNumbers;
 	}
 
 	/*
@@ -57,8 +78,11 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 81238
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		List<Integer> largeNumber = new ArrayList<Integer>();
+		return Collections.max(integerList);
+
 	}
+
 
 	/*
 	 Given an array of Integers, return a List of Integers containing just the odd values.
@@ -67,7 +91,13 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List<Integer> oddNumber = new ArrayList<Integer>();
+		for (Integer oddNumbers : integerArray) {
+			if ((oddNumbers % 2) != 0) {
+				oddNumber.add(oddNumbers);
+			}
+		}
+		return oddNumber;
 	}
 
 	/*
@@ -78,6 +108,17 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+		//List<Boolean> newList = new ArrayList<Boolean>();
+		int count = 0;
+
+		for (Integer findTwice : integerList) {
+			if (intToFind == findTwice) {
+				count = count + 1;
+			}
+		}
+		if (count == 2) {
+			return true;
+		}
 		return false;
 	}
 
@@ -94,7 +135,22 @@ public class Exercises {
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+		List<String> myList = new ArrayList<String>();
+
+		for (Integer myList1 : integerArray) {
+			if (myList1 % 3 == 0 && myList1 % 5 == 0) {
+				myList.add("FizzBuzz");
+			} else if (myList1 % 5 == 0) {
+				myList.add("Buzz");
+			} else if (myList1 % 3 == 0) {
+				myList.add("Fizz");
+
+			} else {
+				myList.add(myList1.toString());
+			}
+		}
+
+		return myList;
 	}
 
 	/*
@@ -105,7 +161,19 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+		List<Integer> hardOne = new ArrayList<Integer>();
+
+		//int longer = Math.max(listOne.size(), listTwo.size());
+
+		for (int i = 0; i < Math.max(listOne.size(), listTwo.size()); i++) {
+			if (i < listOne.size()) {
+				hardOne.add(listOne.get(i));
+			}
+			if (i < listTwo.size()) {
+				hardOne.add(listTwo.get(i));
+			}
+		}
+		return hardOne;
 	}
 
 }
