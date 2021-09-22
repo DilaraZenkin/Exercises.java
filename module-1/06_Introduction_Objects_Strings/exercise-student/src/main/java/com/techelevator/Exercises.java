@@ -232,7 +232,7 @@ public class Exercises {
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
 	public String nTwice(String str, int n) {
-		String frontOne = new String(str.substring(0, (0+n)));
+		String frontOne = new String(str.substring(0, (0 + n)));
 		String backOne = new String(str.substring(str.length() - n));
 
 		return frontOne + backOne;
@@ -247,9 +247,11 @@ public class Exercises {
 	 twoChar("java", 3) → "ja"
 	 */
 	public String twoChar(String str, int index) {
+		if(index + 2 >str.length() || index<0) {
+			return str.substring(0, 2);
+		}
 
-
-		return null;
+		return str.substring(index, index+2);
 	}
 
 	/*
@@ -260,7 +262,7 @@ public class Exercises {
 	 middleThree("solving") → "lvi"
 	 */
 	public String middleThree(String str) {
-		String atLeastThree= new String(str.substring((str.length()/2-1), str.length()/2+2 ));
+		String atLeastThree = new String(str.substring((str.length() / 2 - 1), str.length() / 2 + 2));
 		return atLeastThree;
 	}
 
@@ -290,8 +292,12 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
+		String output = "";
+		for( int i =0; i<n; i++) {
+			output = output + str;
+		}
 
-		return null;
+		return output;
 	}
 
 	/*
@@ -302,8 +308,23 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		return null;
+		String output = "";
+
+
+		String firstThreeLetters = str.length() < 3 ? str : str.substring(0, 3);
+
+
+		for (int i = 0; i < n; i++) {
+
+			output = output + firstThreeLetters;
+		}
+		return output;
 	}
+
+
+
+
+
 
 	/*
 	 Count the number of "xx" in the given string. We'll say that overlapping is allowed, so "xxx" contains 2 "xx".
@@ -312,7 +333,15 @@ public class Exercises {
 	 countXX("xxxx") →
 	 */
 	public int countXX(String str) {
-		return 0;
+		int output= 0;
+
+			for(int i=0; i<str.length()-1; i++){
+				if(str.substring(i, i+2).equals("xx")) {
+
+					output = output + 1;
+				}
+		}
+		return output;
 	}
 
 	/*
@@ -322,6 +351,12 @@ public class Exercises {
 	 doubleX("xxxxx") → true
 	 */
 	public boolean doubleX(String str) {
+		int i = str.indexOf('x');
+
+		if(i>=0 && i<str.length()-1) {
+
+			return str.charAt(i+1) == 'x';
+		}
 		return false;
 	}
 
@@ -332,7 +367,10 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
+		String output = "";
+		for(int i=0; i<str.length(); i=i+2)
+			output = output + str.substring(i, i+1  );
+		return output;
 	}
 
 	/*
@@ -342,10 +380,16 @@ public class Exercises {
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		for(int i=0; i<str.length(); i++) {
-			String repeat = new String();
+		String output = "";
+		//String repeat= new String();
+		for (int i = 0; i < str.length(); i++) {
+			//String repeat = new String(str.substring(0, i+1));
+			output = output + str.substring(0, i+1);
+
+			//String repeat1 = new String(str.charAt(0));
+
 		}
-		return null;
+		return output;
 	}
 
 	/*
@@ -356,7 +400,20 @@ public class Exercises {
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		return 0;
+		if (str.length() < 2) {
+			return 0;
+		}
+		String end = str.substring(str.length() - 2);
+		int count = 0;
+
+		for (int i = 0; i < str.length() - 2; i++) {
+			String sub = str.substring(i, i + 2);
+
+			if (sub.equals(end)) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 	/*
@@ -367,8 +424,26 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+		String output= "";
+		if(str.length()<3) {
+			return str;
+		} else {
+			String subStr = str.substring(1, (str.length()-1));
+			subStr = subStr.replace("x", "");
+			return str.charAt(0) + subStr + str.charAt((str.length()-1));
+		}
+
 	}
+
+
+		//String removeOne = new String(str.substring(0));
+		//String removeTwo = new String(str.substring(str.length()-1));
+		//String strOne = new String(removeOne+removeTwo);
+
+
+		//return strOne.replace("x", " ");
+
+
 
 	/*
 	 Given a string, return a string made of the chars at indexes 0,1, 4,5, 8,9 ... so "kittens" yields "kien".
@@ -377,8 +452,17 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		String  output = "";
+
+		for(int i = 0; i<str.length();i=i+4 ) {
+			output = output + str.substring(i, i+1);
+			if(i != str.length()-1) {
+				output = output + str.substring(i+1, i+2);
+			}
+		}
+		return output;
 	}
+
 
 	/*
 	 Suppose the string "yak" is unlucky. Given a string, return a version where all the "yak" are removed.
