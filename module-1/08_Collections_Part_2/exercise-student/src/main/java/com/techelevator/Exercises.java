@@ -329,28 +329,49 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		Map<String, Integer> weirdOne = new HashMap<>();
-
-//		if (words == null) {
-//			return 0;
-//		}
+		Map<String, Integer> last2 = new HashMap<>();
 
 
-		for (String key : words) {
-			if(words==null) {
-				return null;
-			}
-
-			if (words.length <= 2) {
-				weirdOne.put(key, 0);
-				weirdOne.put(key + 1, 0);
-			}
-			 else {
-
-			}
-
+		if (words == null || words.length == 0) {
+			return last2;
 		}
-		return null;
+
+
+		for (String word : words) {
+//			calculate how many times last 2 chars appears
+
+			String last2Chars = word.substring(word.length() - 2);
+			int howMany = 0;
+
+			for (int i = 0; i < word.length() - 2; i++) {
+				String match = word.substring(i, i + 2);
+
+				if (match.equals(last2Chars)) {
+					howMany++;
+				}
+			}
+
+
+			// put that into the mao with the key (word)
+			last2.put(word, howMany);
+		}
+		return last2;
 	}
 }
+
+
+
+//
+//			if (words.length <= 2) {
+//				weirdOne.put(key, 0);
+//				weirdOne.put(key + 1, 0);
+//			}
+//			 else {
+//
+//			}
+//
+//		}
+//		return null;
+//	}
+//}
 
