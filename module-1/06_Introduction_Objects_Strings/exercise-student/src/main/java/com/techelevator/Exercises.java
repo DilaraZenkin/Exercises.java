@@ -8,6 +8,7 @@ public class Exercises {
 	 helloName("Alice") → "Hello Alice!"
 	 helloName("X") → "Hello X!"
 	 */
+	//First I made an object.
 	public String helloName(String name) {
 		String hello = new String("Hello " + name + "!");
 
@@ -312,6 +313,13 @@ public class Exercises {
 
 
 		String firstThreeLetters = str.length() < 3 ? str : str.substring(0, 3);
+
+//		String firstThreeLetters = new String();
+//
+//		if(str.length() < 3 ) {
+//			firstThreeLetters = str.substring(0, 3);
+//			return firstThreeLetters;
+//		}
 
 
 		for (int i = 0; i < n; i++) {

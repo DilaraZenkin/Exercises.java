@@ -15,18 +15,16 @@ public class Television {
 
     public void turnOn() {
         isOn = true;
-        currentVolume = 2;
-        currentChannel = 3;
+
     }
 
     public void changeChannel(int newChannel) {
-        if (isOn == true) {
-            if (newChannel > 2 && newChannel < 19) {
+        if (isOn == true && newChannel > 2 && newChannel < 19) {
                 currentChannel = newChannel;
             }
         }
 
-    }
+
 
 
 
@@ -53,23 +51,21 @@ public class Television {
     }
 
     public void raiseVolume() {
-        if (isOn == true) {
-            if (currentVolume < 10) {
+        if (isOn == true && currentVolume < 10) {
                 currentVolume++;
             }
         }
 
 
-    }
+
 
     public void lowerVolume() {
-        if (isOn == true) {
-            if (currentVolume > 0) {
+        if (isOn == true && currentVolume > 0) {
                 currentVolume--;
 
             }
         }
-    }
+
 
 
     // Getters and Setters

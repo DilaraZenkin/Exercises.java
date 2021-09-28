@@ -17,19 +17,19 @@ public class Airplane {
         this.totalCoachSeats = totalCoachSeats;
     }
 
-    // Derived Property:
+    // Derived Property//Methods
 
     public boolean reserveSeats(boolean forFirstClass, int totalNumberOfSeats) {
 
 
         if (forFirstClass == true) {
-            if (totalFirstClassSeats - bookedFirstClassSeats >= totalNumberOfSeats) {
+            if (getAvailableFirstClassSeats() >= totalNumberOfSeats) {
                 bookedFirstClassSeats += totalNumberOfSeats;
                 return true;
             } else {
                 return false;
             }
-        } else if (totalCoachSeats - bookedCoachSeats >= totalNumberOfSeats) {
+        } else if (getAvailableCoachSeats() >= totalNumberOfSeats) {
             bookedCoachSeats += totalNumberOfSeats;
             return true;
 

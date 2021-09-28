@@ -2,7 +2,7 @@ package com.techelevator;
 
 public class Elevator {
     // DATA: Instance variables
-    private int currentFloor;
+    private int currentFloor=1;
     private int numberOfFloors;
     private boolean doorOpen;
 
@@ -11,7 +11,7 @@ public class Elevator {
 
     public Elevator(int numberOfLevels) {
         this.numberOfFloors = numberOfLevels;
-        this.currentFloor = 1;
+       // this.currentFloor=1;
     }
 
     // Getters and Setters
