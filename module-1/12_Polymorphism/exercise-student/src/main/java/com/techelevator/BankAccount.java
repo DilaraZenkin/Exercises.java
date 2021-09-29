@@ -1,6 +1,8 @@
 package com.techelevator;
 
-public class BankAccount {
+import java.math.BigDecimal;
+
+public class BankAccount implements Accountable {
 
     private String accountHolderName;
     private String accountNumber;
@@ -10,6 +12,7 @@ public class BankAccount {
         this.accountHolderName = accountHolder;
         this.accountNumber = accountNumber;
         this.balance = 0;
+
     }
 
     public BankAccount(String accountHolder, String accountNumber, int balance) {
@@ -40,4 +43,21 @@ public class BankAccount {
         return balance;
     }
 
+    public int transferTo(BankAccount destinationAccount, int transferAmount) {
+
+        this.withdraw(transferAmount);
+       destinationAccount.deposit(transferAmount);
+
+        return balance;
+
+        //destinationAccount.balance -= destinationAccount.withdraw(transferAmount);
+        //destinationAccount.balance += destinationAccount.deposit(transferAmount);
+
+        //BankAccount -= withdraw(transferAmount);
+        //BankAccount += deposit(transferAmount);
+
+       // return balance;
+
+
+    }
 }
