@@ -6,12 +6,12 @@ public class RTNValidator {
 
 	private void printApplicationBanner() {
 		System.out.println("******************");
-		System.out.println("RTN Validator 2000");
+		System.out.println("RTN Validator 9000");
 		System.out.println("******************");
 		System.out.println();
 	}
 
-	public boolean checksumIsValid(String routingNumber) {
+	private boolean checksumIsValid(String routingNumber) {
 		int checksum = 0;
 		for(int i = 0; i < 9; i++) {
 			int digit = Integer.parseInt(routingNumber.substring(i, i+1));

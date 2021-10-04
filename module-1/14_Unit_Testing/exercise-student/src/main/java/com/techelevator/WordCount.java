@@ -6,7 +6,7 @@ import java.util.Map;
 public class WordCount {
 
 	/*
-	 * Given an array of strings, return a Dictionary<string, int> with a key for
+	 * Given an array of strings, return a Map<String, Integer> with a key for
 	 * each different string, with the value the number of times that string appears
 	 * in the array.
 	 *
@@ -20,17 +20,17 @@ public class WordCount {
 	 */
 	public Map<String, Integer> getCount(String[] words) {
 		Map<String, Integer> output = new HashMap<>();
-
-		if (words != null) {
-			for (String word : words) {
-				if (!output.containsKey(word)) {
-					output.put(word, 1);
-				} else {
-					output.put(word, output.get(word) + 1);
-				}
+		if(words != null && words.length > 0) {
+			for(String word: words) {
+				output.put(word, output.getOrDefault(word, 0) + 1);
 			}
 		}
-
 		return output;
 	}
+
+	// TDD:  Test-Driven Development
+	// Step 1: Write a test (that fails)
+	// Step 2: Write code to make the test pass
+	// Step 3: Refactor (if possible)
+
 }
