@@ -1,5 +1,7 @@
 package com.techelevator.exceptions;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ExceptionsLecture {
@@ -55,32 +57,39 @@ public class ExceptionsLecture {
 
 	}
 
-	public static double calculateHotelRoomCharge(int numberOfNights, int numberOfGuests) {
+	public static int calculateHotelRoomCharge(int numberOfNights, int numberOfGuests) throws HotelException {
 		int extraGuestCharge = 25;
 		int roomRate = 100;
 
 		if (numberOfNights < 1) {
 			System.out.println("Don't do that!");
-			throw new IllegalArgumentException("Non-positive number of nights!");
+			//throw new IllegalArgumentException("Non-positive number of nights!");
+			throw new HotelException();
 		}
 
 		if (numberOfGuests < 1) {
 			System.out.println("Don't do that!");
-			throw new IllegalArgumentException("Non-positive number of guests!");
+			// throw new IllegalArgumentException("Non-positive number of guests!");
+			throw new HotelException();
+
 		}
 
 		return (numberOfGuests * extraGuestCharge) * numberOfNights + (numberOfNights * roomRate);
 	}
 
 	public static void main(String[] args) {
+		System.out.println("Let's book a hotel room!");
 		Scanner darkly = new Scanner(System.in);
 		System.out.print("How many people? >>> ");
 		int ppl = Integer.parseInt(darkly.nextLine());
 		System.out.print("How many nights? >>> ");
 		int nights = Integer.parseInt(darkly.nextLine());
 
-		double totalCharge = calculateHotelRoomCharge(nights, ppl);
+
+		int totalCharge = calculateHotelRoomCharge(ppl, nights);
 		System.out.println(ppl + " Guests for " + nights + " nights has a total charge of: " + totalCharge);
+
+		System.out.println("Done!");
 	}
 
 
