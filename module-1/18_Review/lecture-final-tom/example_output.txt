@@ -1,0 +1,6 @@
+The most commonly occurring letter in: "Trying again" is: a!
+It appeared 2 times!
+The most commonly occurring letter in: "I think I finally got it right" is: i!
+It appeared 6 times!
+The most commonly occurring letter in: "continue the file " is: e!
+It appeared 3 times!
