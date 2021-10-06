@@ -12,8 +12,10 @@ public class QuizMaker {
 		ArrayList<Question> questions = new ArrayList<Question>();
 
 		Scanner in = new Scanner(System.in);
-		String path = "C:\\Users\\Student\\workspace\\dilarazenkin-java\\module-1\\16_FileIO_Reading_in\\exercise-student\\test_quiz.txt";
+		//String path = "C:\\Users\\Student\\workspace\\dilarazenkin-java\\module-1\\16_FileIO_Reading_in\\exercise-student\\test_quiz.txt";
+String path = "C:\\Users\\Student\\workspace\\dilarazenkin-java\\module-1\\16_FileIO_Reading_in\\exercise-student\\test_quiz.txt";
 		File fileTestQuiz = new File(path);
+		//System.out.println(fileTestQuiz.getAbsolutePath());
 
 		if (fileTestQuiz.exists() && fileTestQuiz.isFile()) {
 			try (Scanner fileScanner = new Scanner(System.in)) {
