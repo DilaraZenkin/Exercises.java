@@ -58,7 +58,7 @@ public class FizzWriter {
 				FileWriter writer = new FileWriter(destinationFile);
 				for (int num = 1; num <= 300; num++) {
 					if (num % 15 == 0) writer.write("FizzBuzz\r\n");
-					else if (num % 3 == 0) writer.write("Fizz\r\n");
+					else if (num % 3 == 0 ) writer.write("Fizz\r\n");
 					else if (num % 5 == 0) writer.write("Buzz\r\n");
 					else writer.write(String.format("%d\r\n", num));
 				}
