@@ -9,5 +9,11 @@ public class Application {
 		System.out.println(whatUpG.greetingAndTime());
 
 		System.out.println("Done!");
+
+		System.out.println();
 	}
+
+
+
+
 }

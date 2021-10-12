@@ -182,8 +182,22 @@ if(len<=4) {
 	 start1([1, 2], []) → 1
 	 */
 	public int start1(int[] a, int[] b) {
-		return 0;
+		int count = 0;
+		if (a.length != 0) {
+			if (a[0] == 1) {
+				count++;
+			}
+			if (b.length != 0) {
+				if (b[0] == 1) {
+					count++;
+				}
+			}
+		}
+		return count;
 	}
+
+
+
 
 	/*
 	 12. Start with 2 int arrays, a and b, each length 2. Consider the sum of the values in each array. Return the
@@ -193,7 +207,14 @@ if(len<=4) {
 	 biggerTwo([1, 1], [1, 2]) → [1, 2]
 	 */
 	public int[] biggerTwo(int[] a, int[] b) {
-		return new int[] {};
+		int totalFirst = a[0] + a[1];
+		int totalSecond = b[0] + b[1];
+
+		if (totalFirst > totalSecond) {
+			return a;
+		} else {
+			return b;
+		}
 	}
 
 	/*
@@ -204,7 +225,14 @@ if(len<=4) {
 	 makeMiddle([1, 2]) → [1, 2]
 	 */
 	public int[] makeMiddle(int[] nums) {
-		return new int[] {};
+		int len = nums.length;
+		if (len > 2) {
+			return new int[]{nums[len/2 - 1], nums[len/2]};
+		}
+		if (len == 2) {
+			return nums;
+		}
+		return null;
 	}
 
 	/*
@@ -214,7 +242,7 @@ if(len<=4) {
 	 plusTwo([9, 2], [3, 4]) → [9, 2, 3, 4]
 	 */
 	public int[] plusTwo(int[] a, int[] b) {
-		return new int[] {};
+		return new int[] {a[0], a[1], b[0], b[1]};
 	}
 
 	/*
@@ -225,7 +253,11 @@ if(len<=4) {
 	 swapEnds([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]
 	 */
 	public int[] swapEnds(int[] nums) {
-		return new int[] {};
+		int a= nums[0];
+		int b = nums[nums.length-1];
+		nums[0] = b;
+		nums[nums.length-1] = a;
+		return nums;
 	}
 
 	/*
@@ -235,8 +267,22 @@ if(len<=4) {
 	 more14([1, 1]) → true
 	 */
 	public boolean more14(int[] nums) {
-		return false;
+		int countOfOne = 0;
+		int countOfFour = 0;
+		boolean isTrue = false;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 1) ;
+			countOfOne++;
+			if (nums[i] == 4) ;
+			countOfFour++;
+		}
+		if (countOfOne > countOfFour) {
+			isTrue = true;
+
+		}
+		return isTrue;
 	}
+
 
 	/*
 	 17. Given a number n, create and return a new int array of length n, containing the numbers 0, 1, 2, ... n-1.
@@ -258,7 +304,21 @@ if(len<=4) {
 	 only14([1, 1]) → true
 	 */
 	public boolean only14(int[] nums) {
-		return false;
+		int countOfOne = 0;
+		int countOfFour = 0;
+		boolean isTrue = false;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 1) ;
+			countOfOne++;
+			if (nums[i] == 4) ;
+			countOfFour++;
+		}
+		if (countOfOne > countOfFour) {
+			isTrue = true;
+
+		}
+		return isTrue;
+
 	}
 
 	/*
