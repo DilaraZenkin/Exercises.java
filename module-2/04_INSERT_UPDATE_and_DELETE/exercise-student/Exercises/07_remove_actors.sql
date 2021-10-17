@@ -2,9 +2,4 @@
 -- Note: Don't remove the actors themeselves, just make it so it seems
 --no one appeared in the movie.
 
---DELETE * FROM movie_actor
---WHERE actor_id = (SELECT actor_id FROM movie_actor WHERE movie_id = 299536);
-
---DELETE FROM movie_actor
---
---WHERE movie_id = 299536;
+DELETE FROM movie_actor WHERE movie_id = 299536;

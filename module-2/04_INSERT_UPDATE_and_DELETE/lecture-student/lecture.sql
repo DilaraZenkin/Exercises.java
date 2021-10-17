@@ -80,11 +80,15 @@
 
 
 -- Demonstrate two different SQL connections trying to access the same table where one is inside of a transaction but hasn't committed yet.
-SELECT COUNT(*) AS num_of_movies, p.person_name
-FROM movie m
-JOIN person p ON m.director_id = p.person_id
-JOIN movie_actor ma ON ma.actor_id = p.person_id
-WHERE p.person_name LIKE 'George%'
-GROUP BY p.person_name
+SELECT movie_id, title, collection_id, actor_id
+FROM person p
+LEFT JOIN movie_actor ma ON ma.actor_id = p.person_id
+LEFT JOIN movie m USING(movie_id)
+JOIN collection USING(collection_id)
+WHERE p.person_name LIKE '%Bill Murray%'
+GROUP BY   p.person_id, movie_id, title,collection_id, actor_id
 ORDER BY p.person_name
 ;
+
+
+

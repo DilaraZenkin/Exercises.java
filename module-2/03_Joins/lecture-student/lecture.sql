@@ -212,3 +212,44 @@ SELECT *
 FROM movie_actor ma
 JOIN person p ON p.person_id = ma.actor_id;
 
+SELECT * FROM person p
+JOIN movie_actor ma ON ma.actor_id = p.person_id
+
+WHERE person_name = 'Penn Jillette';
+
+SELECT * FROM movie m
+JOIN movie_actor ma ON ma.movie_id = m.movie_id
+WHERE title = 'Memento';
+ SELECT movie_id, title
+ FROM movie
+ WHERE title = 'Star Wars'
+ ;
+ 
+ SELECT * FROM movie_actor ma
+ JOIN person p ON ma.actor_id = p.person_id
+ WHERE person_name ='Eric Stoltz';
+ SELECT movie_id FROM movie
+ WHERE title = 'Back to the Future';
+ 
+ SELECT * FROM movie_actor ma
+ JOIN person p ON ma.actor_id = p.person_id
+ WHERE person_name ='Eric Stoltz';
+ 
+ SELECT * FROM movie_genre mg
+ JOIN movie m ON mg.movie_id = m.movie_id
+WHERE title = 'Coach Carter'
+ 
+ ;
+ 
+ SELECT * FROM movie_actor ma
+ JOIN movie USING(movie_id)
+  WHERE title = 'Avengers: Infinity War';
+  
+  SELECT actor_id, movie_id FROM person p
+  JOIN movie_actor ma ON ma.actor_id = p.person_id
+  WHERE person_name ='Bill Murray';
+  
+ SELECT * FROM movie_actor ma
+ JOIN movie USING(movie_id)
+  WHERE title = 'Avengers: Infinity War';
+
