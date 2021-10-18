@@ -140,3 +140,116 @@ JOIN movie_genre ON movie_genre.movie_id = movie.movie_id
 JOIN genre ON genre.genre_id = movie_genre.genre_id
 WHERE genre_name = 'Family' AND person_name = 'Samuel L. Jackson';
 
+SELECT COUNT(*) AS num_of_movies, p.person_name
+FROM movie m
+JOIN person p ON m.director_id = p.person_id
+JOIN movie_actor ma ON ma.actor_id = p.person_id
+
+GROUP BY p.person_name
+ORDER BY p.person_name
+;
+
+SELECT genre_name, release_date, person_name
+FROM movie m
+JOIN movie_genre mg ON m.movie_id = mg.movie_id
+JOIN genre g ON g.genre_id = mg.genre_id
+JOIN person p ON m.director_id = p.person_id
+JOIN movie_actor ma ON p.person_id = ma.actor_id
+WHERE person_name = 'Robert De Niro'
+;
+
+SELECT genre_name, COUNT(movie_id) AS num_of_movies
+FROM movie_genre
+JOIN genre ON movie_genre.genre_id = genre.genre_id
+GROUP BY genre_name
+;
+SELECT COUNT(m.movie_id) AS num_of_movies, p.person_name
+FROM movie m
+JOIN person p ON m.director_id = p.person_id
+JOIN movie_actor ma ON ma.actor_id = p.person_id
+
+GROUP BY p.person_name
+ORDER BY p.person_name
+;
+
+SELECT g.genre_name
+FROM genre g
+JOIN movie_genre mg ON mg.genre_id = g.genre_id
+JOIN movie m ON m.movie_id = mg.movie_id
+JOIN movie_actor ma ON m.movie_id = ma.movie_id
+JOIN person p ON p.person_id = ma.actor_id
+WHERE p.person_name = 'Robert De Niro' AND m.release_date >= '2010-01-01'
+;
+
+SELECT COUNT(*) AS num_of_movies, p.person_name
+FROM movie m
+JOIN movie_actor ma ON m.movie_id = ma.movie_id
+JOIN person p ON ma.actor_id = p.person_id
+WHERE p.person_name LIKE 'George %'
+GROUP BY p.person_name
+ORDER BY p.person_name
+;
+
+SELECT COUNT(*) AS num_of_movies, p.person_name
+FROM movie m
+JOIN movie_actor ma ON m.movie_id = ma.movie_id
+JOIN person p ON ma.actor_id = p.person_id
+WHERE p.person_name LIKE 'George %'
+GROUP BY  p.person_name, p.person_id
+ORDER BY p.person_name
+;
+
+SELECT person_name, COUNT(title) AS num_of_movies
+FROM person p
+LEFT JOIN movie_actor ma ON ma.actor_id = p.person_id
+LEFT JOIN movie m USING(movie_id)
+WHERE p.person_name LIKE 'George %'
+GROUP BY  p.person_name, p.person_id
+ORDER BY p.person_name
+;
+
+SELECT *
+FROM movie_actor ma
+JOIN person p ON p.person_id = ma.actor_id;
+
+SELECT * FROM person p
+JOIN movie_actor ma ON ma.actor_id = p.person_id
+
+WHERE person_name = 'Penn Jillette';
+
+SELECT * FROM movie m
+JOIN movie_actor ma ON ma.movie_id = m.movie_id
+WHERE title = 'Memento';
+ SELECT movie_id, title
+ FROM movie
+ WHERE title = 'Star Wars'
+ ;
+ 
+ SELECT * FROM movie_actor ma
+ JOIN person p ON ma.actor_id = p.person_id
+ WHERE person_name ='Eric Stoltz';
+ SELECT movie_id FROM movie
+ WHERE title = 'Back to the Future';
+ 
+ SELECT * FROM movie_actor ma
+ JOIN person p ON ma.actor_id = p.person_id
+ WHERE person_name ='Eric Stoltz';
+ 
+ SELECT * FROM movie_genre mg
+ JOIN movie m ON mg.movie_id = m.movie_id
+WHERE title = 'Coach Carter'
+ 
+ ;
+ 
+ SELECT * FROM movie_actor ma
+ JOIN movie USING(movie_id)
+  WHERE title = 'Avengers: Infinity War';
+  
+  SELECT actor_id, movie_id FROM person p
+  JOIN movie_actor ma ON ma.actor_id = p.person_id
+  WHERE person_name ='Bill Murray';
+  
+ SELECT * FROM movie_actor ma
+ JOIN movie USING(movie_id)
+  WHERE title = 'Avengers: Infinity War';
+
