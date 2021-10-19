@@ -90,5 +90,11 @@ GROUP BY   p.person_id, movie_id, title,collection_id, actor_id
 ORDER BY p.person_name
 ;
 
+INSERT INTO collection(collection_name)
+ VALUES('Bill Murray Collection');
+
+ UPDATE movie
+ SET collection_id =(SELECT collection_id FROM collection WHERE collection_name = 'Bill Murray Collection')
+ WHERE movie_id IN (399174, 10315, 120467, 83666, 137, 10433);
 
 
