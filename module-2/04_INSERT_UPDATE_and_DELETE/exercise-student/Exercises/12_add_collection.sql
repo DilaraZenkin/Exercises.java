@@ -14,7 +14,7 @@ WHERE person_name = 'Bill Murray';
  UPDATE movie
  SET collection_id =(SELECT collection_id FROM collection WHERE collection_name = 'Bill Murray Collection')
  WHERE movie_id IN (SELECT  movie_id FROM person JOIN movie_actor ON movie_actor.actor_id = person.person_id JOIN movie USING(movie_id) WHERE person_name = 'Bill Murray');
- 
+
 
 -- UPDATE movie
 -- SET collection_id = 0000001
