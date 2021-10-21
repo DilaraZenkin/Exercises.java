@@ -25,31 +25,57 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
     @Before
     public void setup() {
         sut = new JdbcTimesheetDao(dataSource);
+
     }
 
     @Test
     public void getTimesheet_returns_correct_timesheet_for_id() {
-        Assert.fail();
+        Timesheet actualTimeSheet1 = sut.getTimesheet(1L);
+        assertTimesheetsMatch(TIMESHEET_1, actualTimeSheet1);
+
+        Timesheet actualTimeSheet2 = sut.getTimesheet(2L);
+        assertTimesheetsMatch(TIMESHEET_2, actualTimeSheet2);
+
+        Timesheet actualTimeSheet3 = sut.getTimesheet(3L);
+        assertTimesheetsMatch(TIMESHEET_3, actualTimeSheet3);
+
+        Timesheet actualTimeSheet4 = sut.getTimesheet(4L);
+        assertTimesheetsMatch(TIMESHEET_4, actualTimeSheet4);
+
     }
 
     @Test
     public void getTimesheet_returns_null_when_id_not_found() {
-        Assert.fail();
+
+        Timesheet shouldBeNull = sut.getTimesheet(-1L);
+        Assert.assertNull(shouldBeNull);
     }
 
     @Test
     public void getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee() {
-        Assert.fail();
+
+        List<Timesheet> timesheets = sut.getTimesheetsByEmployeeId(1L);
+        Assert.assertNotNull(timesheets);
+        Assert.assertEquals(1, timesheets.size());
     }
 
     @Test
     public void getTimesheetsByProjectId_returns_list_of_all_timesheets_for_project() {
-        Assert.fail();
+        List<Timesheet> timesheets = sut.getTimesheetsByProjectId(1L);
+        Assert.assertNotNull(timesheets);
+        Assert.assertEquals(2, timesheets.size());
+
     }
 
     @Test
     public void createTimesheet_returns_timesheet_with_id_and_expected_values() {
-        Assert.fail();
+        Timesheet newTimesheetThatIsNotInDatabase = new Timesheet(5L, 3L, 2L,
+                LocalDate.parse("2021-02-01"), 1.25, true, "Timesheet 5");
+        Timesheet newTimesheetThatIsNowInDatabase = sut.createTimesheet(newTimesheetThatIsNotInDatabase);
+
+        //Assert.assertNotEquals();
+
+
     }
 
     @Test

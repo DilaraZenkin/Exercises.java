@@ -3,7 +3,7 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS department, employee, project, project_employee, timesheet CASCADE;
 
 CREATE TABLE department (
-	department_id serial,
+    department_id serial,
 	name varchar(40) UNIQUE NOT NULL,
 	CONSTRAINT PK_department PRIMARY KEY (department_id)
 );

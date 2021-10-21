@@ -10,8 +10,6 @@ public interface CustomerDao {
 
 
 
-
-
     /**
      * Get customers whose first or last names include the given search string.
      *
