@@ -35,9 +35,9 @@ public class JdbcEmployeeDao implements EmployeeDao {
 		List<Employee> employees = new ArrayList<>();
 		String sql = "SELECT * "
 				+ "FROM employee "
-				+ "WHERE upper(first_name) like ? and upper(last_name) like ?;";
-		firstNameSearch = "%"+firstNameSearch.toUpperCase()+"%";
-		lastNameSearch = "%"+lastNameSearch.toUpperCase()+"%";
+				+ "WHERE first_name ILIKE ? and last_name IlIKE ?;";
+		firstNameSearch = "%"+firstNameSearch+"%";
+		lastNameSearch = "%"+lastNameSearch+"%";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql,firstNameSearch, lastNameSearch);
 		while (results.next()){
 			employees.add(mapRowToEmployee(results));
