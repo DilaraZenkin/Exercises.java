@@ -42,9 +42,9 @@ public class JdbcDepartmentDao implements DepartmentDao {
 
 	@Override
 	public void updateDepartment(Department updatedDepartment) {
-		String  sql = "UPDATE department " + "SET department_id = ?, name = ? " +
+		String  sql = "UPDATE department " + "SET name = ? " +
 				"WHERE department_id = ?;";
-		jdbcTemplate.update(sql,updatedDepartment.getId(), updatedDepartment.getName());
+		jdbcTemplate.update(sql, updatedDepartment.getName(), updatedDepartment.getId());
 
 	}
 
