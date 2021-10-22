@@ -1,35 +1,47 @@
 Bug 1
 -----
 Test that demonstrates problem:
-
+getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee
 Expected output:
-
+Assert.assertEquals(2, timesheets.size());
 Actual output:
-
+Assert.assertEquals(1, timesheets.size());
 How did you fix this bug?
-
-
+I've change if statement to while, because methods return a list.
+Before
+if (results.next()) {
+Timesheet timesheet = mapRowToTimesheet(results);
+timesheets.add(timesheet);
+}
+After
+while (results.next()) {
+            cities.add(mapRowToCity(results));
+        }
 Bug 2
 -----
 Test that demonstrates problem:
+getTimesheetsByProjectId_returns_list_of_all_timesheets_for_project()
 
-Expected output:
+Expected output: 3
 
-Actual output:
+Actual output: 2
 
 How did you fix this bug?
-
+I changed the sql string in the getTimesheetsByProjectId() method. The WHERE clause originally
+stated "WHERE employee_id = ?", however, the employee_id was not what is being searched by in this method,
+but rather the project_id. So, I changed the WHERE clause to be "WHERE project_id = ?" and that fixed the bug.
 
 Bug 3
 -----
 Test that demonstrates problem:
-
+ updated_timesheet_has_expected_values_when_retrieved()
 Expected output:
 
 Actual output:
 
 How did you fix this bug?
-
+Did not originally include billable, updated to include billable.
+I added billable = ? and updatedTimesheet.isBillable(),
 
 Bug 4
 -----
