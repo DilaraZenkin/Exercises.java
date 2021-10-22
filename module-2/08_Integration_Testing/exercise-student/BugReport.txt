@@ -46,10 +46,12 @@ I added billable = ? and updatedTimesheet.isBillable(),
 Bug 4
 -----
 Test that demonstrates problem:
+getBillableHours_returns_correct_total()
+Expected output: 0
 
-Expected output:
-
-Actual output:
+Actual output: 2
 
 How did you fix this bug?
-
+The getBillableHours() sql String's WHERE clause excluded billable which led to all hours
+being billable regardless of if they were true or false. I added a "AND billable = true" which sums up the hours for
+timesheets that are billable and leaves timesheets that are not billable at 0.

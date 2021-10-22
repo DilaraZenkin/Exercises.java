@@ -166,7 +166,7 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
         Assert.assertEquals(0.25, totalBillableHours3, 0.001);
 
         double totalBillableHours4 = sut.getBillableHours(2L, 2L);
-        Assert.assertEquals(2.0, totalBillableHours4, 0.001);
+        Assert.assertEquals(0.0, totalBillableHours4, 0.001);
 
 
     }
