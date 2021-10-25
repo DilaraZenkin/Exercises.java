@@ -16,6 +16,7 @@ public class JdbcEmployeeDao implements EmployeeDao {
 	private final JdbcTemplate jdbcTemplate;
 
 	public JdbcEmployeeDao(DataSource dataSource) {
+
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
