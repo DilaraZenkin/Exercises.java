@@ -18,22 +18,26 @@ public class AuctionService {
 
     public Auction[] listAllAuctions() {
         // api code here
-        return null;
+        return restTemplate.getForObject(API_URL + "?apikey=" + API_KEY, Auction[].class);
     }
 
     public Auction listDetailsForAuction(int id) {
         // api code here
-        return null;
+
+        return restTemplate.getForObject(API_URL + "/" + id + "?apikey=" + API_KEY, Auction.class);
     }
 
     public Auction[] findAuctionsSearchTitle(String title) {
         // api code here
-        return null;
+        Auction[] auctions = restTemplate.getForObject(API_URL + "?apikey=" + API_KEY +"&title_like=" + title, Auction[].class);
+        return auctions;
+// https://te-pgh-api.azurewebsites.net/api/auctions?apikey=3050&title_like=Bell
     }
 
     public Auction[] findAuctionsSearchPrice(double price) {
         // api code here
-        return null;
+        Auction[] auctions = restTemplate.getForObject(API_URL + "?apikey=" + API_KEY +"&currentBid_Ite=" + price, Auction[].class);
+        return auctions;
     }
 
 }
