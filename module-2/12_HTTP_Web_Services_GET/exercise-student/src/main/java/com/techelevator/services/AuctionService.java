@@ -36,7 +36,7 @@ public class AuctionService {
 
     public Auction[] findAuctionsSearchPrice(double price) {
         // api code here
-        Auction[] auctions = restTemplate.getForObject(API_URL + "?apikey=" + API_KEY +"&currentBid_Ite=" + price, Auction[].class);
+        Auction[] auctions = restTemplate.getForObject(API_URL + "?apikey=" + API_KEY +"&currentBid_lte=" + price, Auction[].class);
         return auctions;
     }
 
