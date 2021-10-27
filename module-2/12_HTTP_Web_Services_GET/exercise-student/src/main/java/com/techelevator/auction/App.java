@@ -5,8 +5,8 @@ import com.techelevator.services.AuctionService;
 import com.techelevator.services.ConsoleService;
 
 public class App {
-    private static final String API_URL = "https://te-pgh-api.azurewebsites.net/api/auctions";
-    private static final String API_KEY = ""; // Set your API Key here
+    public static final String API_URL = "https://te-pgh-api.azurewebsites.net/api/auctions";
+    public static final String API_KEY = "3050"; // Set your API Key here
 
     public static void main(String[] args) {
 
