@@ -1,8 +1,6 @@
 package com.techelevator.services;
 
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
@@ -71,18 +69,85 @@ public class AuctionService {
 
     public Auction add(String auctionString) {
         // place code here
-        return null;
+        String url = API_URL + "?apikey=" + API_KEY;
+
+        //Set up Headers
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        //Set up Body
+        Auction javaObject = makeAuction(auctionString);
+        HttpEntity<Auction> request = new HttpEntity<Auction>(javaObject, headers);
+
+        Auction completedAuction = null;
+
+        try {
+            completedAuction = restTemplate.postForObject(url, request, Auction.class);
+        } catch (RestClientResponseException e) {
+            //Got response, but it was 4xx or 5xx
+            console.printError("Something went wrong!" + e.getRawStatusCode());
+            console.printError(e.getStatusText());
+        } catch (ResourceAccessException e) {
+            // Never got a response
+            console.printError("Server is down!");
+        }
+        return completedAuction;
     }
 
     public Auction update(String auctionString) {
         // place code here
+        Auction updatedAuction = makeAuction(auctionString);
+        if(updatedAuction == null){
+            try {
+                throw new IllegalAccessException("auctionString was invalid");
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        //Set up Headers
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        //Request Entity (Header + Body )
+        HttpEntity<Auction> request = new HttpEntity<Auction>(updatedAuction, headers);
+
+
+        String url = API_URL + "/" + updatedAuction.getId() + "?apikey=" + API_KEY;
+
+        try {
+            restTemplate.put(url, request);
+            ResponseEntity<Auction> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, request, Auction.class);
+            return responseEntity.getBody();
+        } catch (RestClientResponseException e) {
+            System.out.println(e.getRawStatusCode() + " " + e.getStatusText());
+
+        } catch (ResourceAccessException e) {
+            System.out.println("The server is unreachable.");
+        }
+
+
         return null;
     }
 
     public boolean delete(int id) throws RestClientResponseException, ResourceAccessException {
-        // place code here
-        return false;
+         //place code here
+        String url = API_URL +"/" + id + "?apikey=" + API_KEY;
+
+        try {
+            restTemplate.delete(url);
+        }catch(RestClientResponseException e) {
+            System.out.println(e.getRawStatusCode() + " " + e.getStatusText());
+            return false;
+        }catch(ResourceAccessException e) {
+            System.out.println("The server is unreachable.");
+            return false;
+        }
+            return true;
+
     }
+
 
     private HttpEntity<Auction> makeEntity(Auction auction) {
         HttpHeaders headers = new HttpHeaders();
