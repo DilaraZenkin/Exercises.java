@@ -10,7 +10,7 @@ public interface AuctionDAO {
 
     Auction get(int id);
 
-    Auction create(Auction auction);
+    Auction create(Auction auction, int id);
 
     List<Auction> searchByTitle(String title_like);
 
