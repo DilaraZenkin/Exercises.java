@@ -18,7 +18,7 @@ public class AuctionController {
         this.dao = new MemoryAuctionDAO();
     }
 
-    //Return a list of all auctions //add searching by title
+    //Return a list of all auctions //add searching by title //Add searching by price
     @RequestMapping(path = "/auctions", method = RequestMethod.GET)
     public List<Auction> list(@RequestParam(required = false, defaultValue = "") String title_like,
                               @RequestParam(required = false, defaultValue = "0") Double currentBid_lte) {
@@ -45,7 +45,7 @@ public class AuctionController {
     public Auction addAuctions(@RequestBody Auction auction) {
         return dao.create(auction, auction.getId());
 
-    //add searching by title
+
 
 
 
