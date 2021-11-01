@@ -121,5 +121,18 @@ public class HotelController {
 
         return filteredHotels;
     }
+    //Update
+    @RequestMapping(path = "/reservation/{id}", method = RequestMethod.PUT)
+    public Reservation updateReservation(@Valid @RequestBody Reservation r, @PathVariable("id") int reservationID) throws ReservationNotFoundException {
+
+        return reservationDAO.update(r, reservationID);
+    }
+    //Delete
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path = "/reservation/{id}", method = RequestMethod.DELETE)
+    public void deleteReservation(@PathVariable("id") int reservationToAxe) throws ReservationNotFoundException {
+        reservationDAO.delete(reservationToAxe);
+    }
+
 
 }
