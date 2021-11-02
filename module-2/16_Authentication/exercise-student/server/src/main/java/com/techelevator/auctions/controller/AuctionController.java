@@ -5,13 +5,16 @@ import com.techelevator.auctions.dao.MemoryAuctionDao;
 import com.techelevator.auctions.exception.AuctionNotFoundException;
 import com.techelevator.auctions.model.Auction;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@PreAuthorize("isAuthenticated()")
 @RequestMapping("/auctions")
+
 public class AuctionController {
 
     private AuctionDao dao;
@@ -20,7 +23,9 @@ public class AuctionController {
         this.dao = new MemoryAuctionDao();
     }
 
+
     @RequestMapping(path = "", method = RequestMethod.GET)
+    @PreAuthorize("permitAll")
     public List<Auction> list(@RequestParam(defaultValue = "") String title_like, @RequestParam(defaultValue = "0") double currentBid_lte) {
 
         if (!title_like.equals("")) {
@@ -38,17 +43,20 @@ public class AuctionController {
         return dao.get(id);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'CREATOR')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "", method = RequestMethod.POST)
     public Auction create(@Valid @RequestBody Auction auction) {
         return dao.create(auction);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'CREATOR')")
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
     public Auction update(@Valid @RequestBody Auction auction, @PathVariable int id) throws AuctionNotFoundException {
         return dao.update(auction, id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable int id) throws AuctionNotFoundException {
@@ -57,7 +65,7 @@ public class AuctionController {
 
     @RequestMapping(path = "/whoami")
     public String whoAmI() {
-        return "";
+        return "user";
     }
 
 }
