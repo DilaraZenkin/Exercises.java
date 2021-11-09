@@ -1,0 +1,14 @@
+
+
+
+HTML5 & CSS3 
+
+Block Elements (start on new line, take up full width)
+p, div, form, header, footer, h1-h6
+
+Inline Elements (don't start on new line, only as much width as needed)
+a, span, img
+* accept margin & padding
+* ignore height & width
+
+Inline-Block (basically inline, but you can set height & width)
