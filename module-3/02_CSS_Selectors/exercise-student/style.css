@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
@@ -15,3 +16,83 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+aside {
+  position: fixed;
+  width: 200px;
+  border-right: 1px solid var(blue);
+  height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+aside img {
+  display: block;
+  height: 120px;
+  margin: 0 auto;
+}
+
+main {
+  margin-left: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+aside li {
+  list-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid var(blue);
+  margin: 10px auto;
+  padding-bottom: 10px;
+  width: 80%;
+  line-height: 2;
+}
+
+aside ul a {
+  color:lightblue;
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
+aside ul a:hover {
+  text-decoration: underline;
+  border: 1px solid var(blue);
+}
+
+header img {
+  height: 80%;
+}
+
+header  {
+  height: 120px;
+}
+
+img.banner {
+  width: 100%;
+}
+ section div {
+   display: inline-block;
+   width: 33%;
+   padding-right: 20px;
+   padding-top: 20px;
+   vertical-align:text-top ;
+ }
+
+ section div > h2 {
+color: green;
+ } 
+
+ section div > h2 > i {
+margin-right: 10px;
+ } 
+
+ div#what-we-do {
+   border-right: 1px solid green;
+ }
+
+ div#our-work {
+   padding-left: 20px;
+   border-right: 1px solid green;
+ }
