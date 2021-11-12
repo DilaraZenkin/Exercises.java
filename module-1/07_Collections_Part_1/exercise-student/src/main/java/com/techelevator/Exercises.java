@@ -134,24 +134,41 @@ public class Exercises {
 
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
-	public List<String> fizzBuzzList(Integer[] integerArray) {
-		List<String> myList = new ArrayList<String>();
 
-		for (Integer myList1 : integerArray) {
-			if (myList1 % 3 == 0 && myList1 % 5 == 0) {
-				myList.add("FizzBuzz");
-			} else if (myList1 % 5 == 0) {
-				myList.add("Buzz");
-			} else if (myList1 % 3 == 0) {
-				myList.add("Fizz");
-
-			} else {
-				myList.add(myList1.toString());
-			}
-		}
-
-		return myList;
-	}
+//	public List<String> fizzBuzzList(Integer[] integerArray) {
+//		List<String> myList = new ArrayList<String>();
+//
+//		for(int i =0; i< myList.size(); i++) {
+//			if(myList.get(i) % 3 == 0) {
+//				myList.add("Fizz");
+//			} else if(integerArray[i] % 5 == 0) {
+//				myList.add("Buzz");
+//			} else if(integerArray[i] % 15 == 0) {
+//				myList.add("FizzBuzz");
+//			} else{
+//				myList.add(myList.toString());
+//			}
+//		}
+//		return myList;
+//	}
+//	public List<String> fizzBuzzList(Integer[] integerArray) {
+//		List<String> myList = new ArrayList<String>();
+//
+//		for (Integer myList1 : integerArray) {
+//			if (myList1 % 3 == 0 && myList1 % 5 == 0) {
+//				myList.add("FizzBuzz");
+//			} else if (myList1 % 5 == 0) {
+//				myList.add("Buzz");
+//			} else if (myList1 % 3 == 0) {
+//				myList.add("Fizz");
+//
+//			} else {
+//				myList.add(myList1.toString());
+//			}
+//		}
+//
+//		return myList;
+//	}
 
 	/*
 	 Given two lists of Integers, interleave them beginning with the first element in the first list followed
