@@ -16,3 +16,23 @@ body {
   color: #fff;
   border: solid 1px #777;
 }
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  
+  
+}
+
+.box {
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  
+}

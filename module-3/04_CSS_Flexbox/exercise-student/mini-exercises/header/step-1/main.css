@@ -10,6 +10,7 @@ header {
 
 .logo {
   width: 140px;
+  margin-bottom: 30px ;
 }
 
 ul {
@@ -37,3 +38,16 @@ a:hover {
   color: #00AFEF;
   text-decoration: underline;
 }
+header {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+}
+

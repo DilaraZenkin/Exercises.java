@@ -38,8 +38,28 @@ li a:hover {
   text-decoration: underline;
 }
 
-.spacer {}
+.spacer {
+
+  flex-grow: 1;
+}
+
+header {
+  display: flex;
+  flex-wrap: nowrap;
+}
 
 .my-account img {
   width: 32px;
+
+
+}
+
+
+
+ul {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+
 }
