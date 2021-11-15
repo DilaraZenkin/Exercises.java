@@ -9,15 +9,13 @@ public class Exercises {
 	 arrayCount9([1, 9, 9, 3, 9]) → 3
 	 */
 	public int arrayCount9(int[] nums) {
-		int countOfNine = 0;
-
-		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] == 9) {
-				countOfNine++;
+		int count = 0;
+		for(int i=0; i<nums.length; i++) {
+			if(nums[i]==9) {
+				count++;
 			}
-
 		}
-		return countOfNine;
+		return count;
 	}
 
 
@@ -28,25 +26,16 @@ public class Exercises {
 	 arrayFront9([1, 2, 3, 4, 5]) → false
 	 */
 	public boolean arrayFront9(int[] nums) {
-int len = nums.length;
-if(len<=4) {
-	for (int i = 0; i < len; i++) {
-		if (nums[i] == 9) {
-			return true;
-		}
-	}
-	} else if (len >= 4) {
-		for (int j = 0; j < 4; j++) {
-			if (nums[j] == 9) {
+		for(int i=0; i< nums.length; i++) {
+			if((nums.length<4) && nums[i]==9) {
+				return true;
+			}else if(nums.length>=4 && (nums[0]==9 || nums[1]==9 || nums[2]==9 || nums[3]==9)){
 				return true;
 			}
 		}
-	}
 
 		return false;
-		}
-
-
+	}
 
 	/*
 	 3. Given an array of ints, return true if .. 1, 2, 3, .. appears in the array somewhere.
@@ -55,13 +44,11 @@ if(len<=4) {
 	 array123([1, 1, 2, 1, 2, 3]) → true
 	 */
 	public boolean array123(int[] nums) {
-		int len = nums.length;
-		for(int i=0; i<len-2; i++) {
+		for(int i = 0; i<nums.length-2; i++) {
 			if(nums[i]==1 && nums[i+1]==2 && nums[i+2]==3) {
 				return true;
 			}
 		}
-
 		return false;
 	}
 
@@ -73,13 +60,10 @@ if(len<=4) {
 	 noTriples([1, 1, 1, 2, 2, 2, 1]) → false
 	 */
 	public boolean noTriples(int[] nums) {
-		int len = nums.length;
 
-		for(int i=0; i<len-1; i++) {
-			if (i + 2 <= len - 1) {
-				if (nums[i] == nums[i + 1] && nums[i] == nums[i + 2]) {
-					return false;
-				}
+		for(int i = 0; i< nums.length-2; i++) {
+			if(nums[i]==nums[i+1] && nums[i]==nums[i+2]) {
+				return false;
 			}
 		}
 		return true;
@@ -93,14 +77,11 @@ if(len<=4) {
 	 makeEnds([7, 4, 6, 2]) → [7, 2]
 	 */
 	public int[] makeEnds(int[] nums) {
-		int len = nums.length;
-		if (len > 1) {
 
-		} else if (len == 1) {
-			return new int[]{nums[0]};
+			return new int[]{nums[0], nums[nums.length-1]};
 		}
-		return new int[]{nums[0], nums[len - 1]};
-	}
+
+
 
 	/*
 	 6. Given an int array length 2, return true if it contains a 2 or a 3.
@@ -108,12 +89,14 @@ if(len<=4) {
 	 has23([4, 3]) → true
 	 has23([4, 5]) → false
 	 */
-	public boolean has23(int[] nums) {
-		if(nums[0]==2 || nums[0]==3 || nums[1]==2 || nums[1]==3){
-			return true;
+		public boolean has23(int[] nums) {
+			for(int i=0; i< nums.length; i++) {
+				if(nums[i]==2 || nums[i]==3) {
+					return true;
+				}
+			}
+			return false;
 		}
-		return false;
-	}
 
 	/*
 	 7. Given an int array length 2, return true if it does not contain a 2 or 3.
@@ -121,12 +104,14 @@ if(len<=4) {
 	 no23([4, 2]) → false
 	 no23([3, 5]) → false
 	 */
-	public boolean no23(int[] nums) {
-		if (nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3) {
-			return false;
+		public boolean no23(int[] nums) {
+			for (int i = 0; i < nums.length; i++) {
+				if (nums[i] == 2 || nums[i] == 3) {
+					return false;
+				}
+			}
+			return true;
 		}
-		return true;
-	}
 
 	/*
 	 8. Given an int array, return a new array with double the length where its last element is the same as the
@@ -137,12 +122,13 @@ if(len<=4) {
 	 makeLast([3]) → [0, 3]
 	 */
 	public int[] makeLast(int[] nums) {
-		int len = nums.length*2;
-		int[] doubleArray = new int[len];
-		doubleArray[len-1] = nums[nums.length-1];
+		int firstLength = 0;
+		int secondLength = 2 * firstLength;
 
-		return doubleArray;
-	}
+
+
+		return new int[]{};}
+
 
 	/*
 	 9. Given an int array, return true if the array contains 2 twice, or 3 twice. The array will be length 0, 1, or 2.
@@ -151,8 +137,10 @@ if(len<=4) {
 	 double23([2, 3]) → false
 	 */
 	public boolean double23(int[] nums) {
-		if (nums.length == 2 && nums[0] == nums[1]) {
-			return true;
+		for (int i = 0; i < nums.length - 1; i++) {
+			if ((nums[i] == 2 && nums[i + 1] == 2) || (nums[i] == 3 && nums[i + 1] == 3)) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -165,14 +153,13 @@ if(len<=4) {
 	 fix23([1, 2, 1]) → [1, 2, 1]
 	 */
 	public int[] fix23(int[] nums) {
-		int[] fixA = {nums[0], nums[1], nums[2] };
-		if(nums[0]==2 && nums[1]==3)
-			fixA[1]=0;
-		if(nums[1]==2 && nums[2]==3)
-			fixA[2]=0;
+		for (int i = 0; i < nums.length - 1; i++) {
+			if(nums[i]==2 && nums[i+1]==3) {
+				nums[i+1]=0;
 
-
-		return fixA;
+			}
+		}
+		return nums;
 	}
 
 	/*
@@ -182,21 +169,14 @@ if(len<=4) {
 	 start1([1, 2], []) → 1
 	 */
 	public int start1(int[] a, int[] b) {
-		int count = 0;
-		if (a.length != 0) {
-			if (a[0] == 1) {
-				count++;
-			}
-			if (b.length != 0) {
-				if (b[0] == 1) {
-					count++;
-				}
-			}
+		if(a[0]==1 && b[0]==1)  {
+			return 2;
+		} else if(a[0]==1 || b[0]==1) {
+		return 1;
+	} else {
+			return 0;
 		}
-		return count;
 	}
-
-
 
 
 	/*
@@ -207,13 +187,10 @@ if(len<=4) {
 	 biggerTwo([1, 1], [1, 2]) → [1, 2]
 	 */
 	public int[] biggerTwo(int[] a, int[] b) {
-		int totalFirst = a[0] + a[1];
-		int totalSecond = b[0] + b[1];
-
-		if (totalFirst > totalSecond) {
-			return a;
-		} else {
-			return b;
+		if (a[0] + a[1] > b[0] + b[1]) {
+			return new int[]{a[0], a[1]};
+		} else  {
+			return new int[]{b[0], b[1]};
 		}
 	}
 
@@ -224,16 +201,16 @@ if(len<=4) {
 	 makeMiddle([7, 1, 2, 3, 4, 9]) → [2, 3]
 	 makeMiddle([1, 2]) → [1, 2]
 	 */
+
+	//index 0 1 2 3 4 5     length
+	//      5,6,7,8,9,10       6
+	//          2-3   ----->>((length/2)-1 , length/2)
 	public int[] makeMiddle(int[] nums) {
-		int len = nums.length;
-		if (len > 2) {
-			return new int[]{nums[len/2 - 1], nums[len/2]};
-		}
-		if (len == 2) {
+		int ln = nums.length;
+		if(ln==2 || ln==0) {
 			return nums;
 		}
-		return null;
-	}
+		return new int[]{nums[(ln/2)-1], nums[(ln/2)]};}
 
 	/*
 	 14. Given 2 int arrays, each length 2, return a new array length 4 containing all their elements.
@@ -242,8 +219,7 @@ if(len<=4) {
 	 plusTwo([9, 2], [3, 4]) → [9, 2, 3, 4]
 	 */
 	public int[] plusTwo(int[] a, int[] b) {
-		return new int[] {a[0], a[1], b[0], b[1]};
-	}
+		return new int[] {a[0],a[1],b[0],b[1]};}
 
 	/*
 	 15. Given an array of ints, swap the first and last elements in the array. Return the modified array. The array
@@ -252,13 +228,9 @@ if(len<=4) {
 	 swapEnds([1, 2, 3]) → [3, 2, 1]
 	 swapEnds([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]
 	 */
-	public int[] swapEnds(int[] nums) {
-		int a= nums[0];
-		int b = nums[nums.length-1];
-		nums[0] = b;
-		nums[nums.length-1] = a;
-		return nums;
-	}
+		public int[] swapEnds(int[] nums) {
+
+			return new int[] {};}
 
 	/*
 	 16. Given an array of ints, return true if the number of 1's is greater than the number of 4's
@@ -266,22 +238,22 @@ if(len<=4) {
 	 more14([1, 4, 1, 4]) → false
 	 more14([1, 1]) → true
 	 */
-	public boolean more14(int[] nums) {
-		int countOfOne = 0;
-		int countOfFour = 0;
-		boolean isTrue = false;
-		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] == 1) ;
-			countOfOne++;
-			if (nums[i] == 4) ;
-			countOfFour++;
-		}
-		if (countOfOne > countOfFour) {
-			isTrue = true;
+			public boolean more14(int[] nums) {
+				int count1 = 0;
+				int count4 = 0;
+				for (int i = 0; i < nums.length; i++) {
+					if (nums[i] == 1)
+						count1++;
+					if (nums[i] == 2) {
+						count4++;
+					}
+					if(count1>count4) {
+						return true;
+					}
+				}
+				return false;
+			}
 
-		}
-		return isTrue;
-	}
 
 
 	/*
@@ -293,9 +265,7 @@ if(len<=4) {
 	 fizzArray(1) → [0]
 	 fizzArray(10) → [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 	 */
-	public int[] fizzArray(int n) {
-		return new int[] {};
-	}
+				public int[] fizzArray(int n) {return new int[] {};}
 
 	/*
 	 18. Given an array of ints, return true if every element is a 1 or a 4.
@@ -303,23 +273,8 @@ if(len<=4) {
 	 only14([1, 4, 2, 4]) → false
 	 only14([1, 1]) → true
 	 */
-	public boolean only14(int[] nums) {
-		int countOfOne = 0;
-		int countOfFour = 0;
-		boolean isTrue = false;
-		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] == 1) ;
-			countOfOne++;
-			if (nums[i] == 4) ;
-			countOfFour++;
-		}
-		if (countOfOne > countOfFour) {
-			isTrue = true;
-
-		}
-		return isTrue;
-
-	}
+					public boolean only14(int[] nums) {	return true;
+					}
 
 	/*
 	 19. Given an array of ints, return true if it contains no 1's or it contains no 4's.
@@ -328,8 +283,19 @@ if(len<=4) {
 	 no14([2, 3, 4]) → true
 	 */
 	public boolean no14(int[] nums) {
-		return false;
+		int count1= 0;
+		int count2 = 0;
+
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 1 ) {
+				count1++;
+			} else if(nums[i]==4) {
+				count2++;
+			}
+		}
+		return count1 == 0 || count2==0;
 	}
+
 
 	/*
 	 20. Given an array of ints, return true if there is a 1 in the array with a 2 somewhere later in the array.
