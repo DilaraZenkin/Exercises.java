@@ -128,9 +128,15 @@ public class Exercises {
 	 left2("java") → "vaja"
 	 left2("Hi") → "Hi"
 	 */
-	public String left2(String str) {
-		return str.substring(2) + str.substring(0, 2);
+	public String left2(String word) {
+		String firstPart = word.substring(0,2);
+		String lastPart= word.substring(2);
+		return lastPart + firstPart;
 	}
+
+	//public String left2(String str) {
+		//return str.substring(2) + str.substring(0, 2);
+	//}
 
 	/*
 	 Given a string, return a "rotated right 2" version where the last 2 chars are moved to the start.

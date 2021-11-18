@@ -149,17 +149,28 @@ public class Exercises {
 	 countEvens([2, 2, 0]) → 3
 	 countEvens([1, 3, 5]) → 0
 	 */
-	public int countEvens(int[] nums) {
-		int eventIntCount = 0;
-
-		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] % 2 == 0) {
-				eventIntCount++;
+	public int countEvens(int[]nums) {
+		int evenNumbersCount = 0;
+		for(int i = 0; i<nums.length; i++) {
+			if(nums[i]%2==0) {
+				evenNumbersCount++;
 			}
 		}
-
-		return eventIntCount;
+		return evenNumbersCount;
 	}
+
+
+//	public int countEvens(int[] nums) {
+//		int eventIntCount = 0;
+//
+//		for (int i = 0; i < nums.length; i++) {
+//			if (nums[i] % 2 == 0) {
+//				eventIntCount++;
+//			}
+//		}
+//
+//		return eventIntCount;
+//	}
 
 	/*
 	 12. Return the sum of the numbers in the array, returning 0 for an empty array. Except the number
@@ -173,15 +184,28 @@ public class Exercises {
 	 */
 	public int sum13(int[] nums) {
 		int sum = 0;
-		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] == 13) {
-				i++; //skips the next element
-			} else {
-				sum += nums[i];
+		for(int i=0; i<nums.length; i++) {
+			if(nums[i] == 13) {
+				i++;
+			} else{
+				sum = sum + nums[i];
 			}
 		}
 		return sum;
 	}
+
+
+//	public int sum13(int[] nums) {
+//		int sum = 0;
+//		for (int i = 0; i < nums.length; i++) {
+//			if (nums[i] == 13) {
+//				i++; //skips the next element
+//			} else {
+//				sum += nums[i];
+//			}
+//		}
+//		return sum;
+//	}
 
 	/*
 	 13. Given an array of ints, return true if the array contains a 2 next to a 2 somewhere.
