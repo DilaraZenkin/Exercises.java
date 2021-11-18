@@ -1,78 +1,73 @@
-header {
+#headline {
+    grid-area: headline;
+    }
+    
+    #student-picture {
+        grid-area: student-picture;
+        text-align: center;
+    }
+    
+    #student-profile {
+        grid-area: student-profile; 
+    }
+    
+    #student-contact {
+        grid-area: student-contact;
+        text-align: center;
+    }
+    
+    #student-quote {
+        grid-area: student-quote;
+    }
+    
+    #experience-code {
+        grid-area: experience-code
+    }
+    
+    #experience-database {
+    grid-area: experience-database;
+    }
+    #experience-web {
+    grid-area: experience-web;
+    }
+    
+    #experience-design {
+    grid-area: experience-design;
+    }
+
+    main#main-grid{
+        display: grid;
+        grid-template-columns: 1fr, 1fr, 1fr;
+        row-gap: 20px;
+        column-gap: 50px;
+        align-items: center;
+        grid-template-areas: "headline headline student-picture"
+                             "student-quote student-quote student-picture"
+                             "student-profile student-profile student-contact"
+                             "experience experience experience";
+        }
+
+        main#main-grid > div#experience-grid {
+            grid-area: experience;
+            display: grid;
+           grid-template-columns: 1fr, 1fr;
+           row-gap: 20px;
+           column-gap: 50px;
+       
+           
+           grid-template-areas: "experience-code experience-code"
+           "experience-database experience-database"
+           "experience-web experience-design" ;
+       }
+    
+    header {
     grid-area: header;
 }
 
 footer {
     grid-area: footer;
 }
-
-main#main-grid{
-    display: grid;
-    grid-template-columns: 2fr, 2fr, 2fr;
-    row-gap: 20px;
-    column-gap: 50px;
-    align-items: center;
-    grid-template-areas: "headline headline student-picture"
-                         "student-quote student-quote student-picture"
-                         "student-profile student-profile student-contact"
-                         "grid grid grid";
-    }
-
-main#main-grid > div#experience-grid {
-   
-     display: grid;
-    grid-template-columns: 2fr, 2fr;
-    row-gap: 20px;
-    column-gap: 50px;
-
-    
-    grid-template-areas: "experience-code experience-code"
-    "experience-database experience-database"
-    "experience-web experience-design" ;
-}
-
-
-
-#headline {
-grid-area: headline;
-}
-
-#student-picture {
-    grid-area: student-picture;
-    text-align: center;
-}
-
-#student-profile {
-    grid-area: student-profile;
-    
-}
-
-#student-contact {
-    grid-area: student-contact;
-    text-align: center;
-}
-
-#student-quote {
-    grid-area: student-quote;
-}
-
-
-
-
-#experience-code {
-    grid-area: experience-code
-}
-
-#experience-database {
-grid-area: experience-database;
-}
-#experience-web {
-grid-area: experience-web;
-}
-
-#experience-design {
-grid-area: experience-design;
-}
+/* layout 2 / tablet */
 @media  (max-width: 1024px) {
     main#main-grid { 
         display: grid;
@@ -82,8 +77,9 @@ grid-area: experience-design;
         grid-template-columns: 1fr 1fr;
         grid-template-areas: "headline headline"
                              "student-quote student-picture"
-                             "student-profile student-contact"
-                             "student-profile student-profile";
+                             "student-quote student-contact"
+                             "student-profile student-profile"
+                             "experience experience";
 
 }
 
@@ -96,7 +92,7 @@ grid-area: experience-design;
                          "experience-database experience-design";
 }
 }
-
+/* layout 3 / mobile */
 @media (max-width: 450px){
     #main-grid{
         display: grid;
@@ -108,7 +104,8 @@ grid-area: experience-design;
                              "student-picture"
                              "student-contact"
                              "student-quote"
-                             "student-profile ";
+                             "student-profile "
+                             "experience";
     }
 
     #experience-grid{
