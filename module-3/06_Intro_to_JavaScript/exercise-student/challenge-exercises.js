@@ -28,3 +28,26 @@ argument is unused.
 		titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
         titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
 */
+function titleCase(str, exceptions) {
+
+    let exceptionsArray = [];
+    if(exceptions) {
+       exceptionsArray = exceptions.split(' '); // ['The', 'In']
+    }
+
+    let returnString = '';
+    const strArray = str.split(' ');  // [ 'the', 'QUICK', 'brown', 'fox']
+
+    for(let i=0; i < strArray.length; i++) {
+        const lowerCaseString = strArray[i].toLowerCase(); // quick
+        let titleCaseString = '';
+
+            if(i===0 || !exceptionsArray.some(x => x.toLowerCase() === strArray[i].toLowerCase()) ) {
+         titleCaseString = lowerCaseString.charAt(0).toUpperCase() + lowerCaseString.substring(1)  // Q + uick
+            }else {
+                titleCaseString = strArray[i].toLowerCase();
+            }
+        returnString += titleCaseString + ' ';
+    }
+    return returnString.substring(0, returnString.length - 1);
+}
