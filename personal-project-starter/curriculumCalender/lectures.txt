@@ -1,0 +1,12 @@
+Introduction to tools
+9/13/21 9:30 11:30
+Variables
+9/14/21 9:30 11:30
+Expressions
+9/15/21 9:30 11:30
+Loops and Arrays
+9/16/21 9:30 11:30
+Command-Line Programs
+9/17/21 9:30 11:30
+Pathway Day
+S 13:00 15:00 9/13/21 9/17/21
