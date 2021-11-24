@@ -67,7 +67,7 @@
         <label for="review">Review:</label>
         <textarea id="review" v-model="newReview.review"></textarea>
       </div>
-      <input type="submit" value="Save">
+      <input type="submit" value="Save" v-on:click.prevent="addNewReview">
       <input type="button" value="Cancel" v-on:click.prevent="resetForm">
     </form>
 
