@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "npm-run-all --parallel json-server start",
+    "serve": "vue-cli-service serve",
     "json-server": "json-server ./db/readit.json --routes ./db/routes.json",
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
