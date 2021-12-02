@@ -4,17 +4,13 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "json-server": "json-server ./db/readit.json --routes ./db/routes.json",
-    "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:e2e": "npm-run-all --parallel json-server test:e2e-alone",
-    "test:e2e-alone": "vue-cli-service test:e2e",
+    "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.9.1",
-    "json-server": "^0.16.3",
     "vue": "^2.6.12",
     "vue-router": "^3.5.1"
   },

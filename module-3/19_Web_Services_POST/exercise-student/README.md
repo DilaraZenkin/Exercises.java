@@ -38,7 +38,7 @@ Add a new method to the service object that accepts a topic id, performs a `DELE
 
 Open `/src/components/TopicList.vue`. You'll see that the `deleteTopic(id)` is empty. You'll need to call the method you created in `TopicService`. 
 
-When the promise is returned, check the status code to make sure everything was successful (200), and call `this.getTopics()` to refresh the list of topics.
+When the promise is returned, check the status code to make sure everything was successful (204), and call `this.getTopics()` to refresh the list of topics.
 
 After this step is complete, all tests in `Step Two Tests`, `Step Three Tests`, and `Step Four Tests` should pass.
 
@@ -68,7 +68,7 @@ When the promise is returned, check the status code to make sure everything was 
 
 Add a new method to the service object that accepts a topic id, performs a `DELETE` request to the URL `/messages/:id`, and returns a Promise. Use Postman to perform a `DELETE` request to `/messages/:id` and make sure the service endpoint is working before moving on.
 
-Open `/src/components/TopicDetails.vue`. You'll see that the `deleteMessage(id)` is empty. You need to call the method you created in `MessageService`. When the promise is returned, check the status code to make sure everything was successful (200), and commit a mutation to the Vuex Store:
+Open `/src/components/TopicDetails.vue`. You'll see that the `deleteMessage(id)` is empty. You need to call the method you created in `MessageService`. When the promise is returned, check the status code to make sure everything was successful (204), and commit a mutation to the Vuex Store:
 
 ```js
 this.$store.commit("DELETE_MESSAGE", id);

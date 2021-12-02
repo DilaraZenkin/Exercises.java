@@ -37,10 +37,11 @@ describe("Web API (POST) Exercises", () => {
   })
 
   describe('CRUD Messages', () => {
+    const topic1InitialMessageCount = 6;
 
     it('should list all messages for topic adipiscing molestie hendrerit', () => {
       cy.contains('adipiscing molestie hendrerit').click();
-      cy.get('.topic-message').should('have.length', 4);
+      cy.get('.topic-message').should('have.length', topic1InitialMessageCount);
     })
 
     it('Step Five Tests: should create new message', () => {
@@ -50,7 +51,7 @@ describe("Web API (POST) Exercises", () => {
       cy.get('button').click();
       cy.contains('TEST TITLE');
       cy.contains('TEST MESSAGE TEXT')
-      cy.get('.topic-message').should('have.length', 5);
+      cy.get('.topic-message').should('have.length', topic1InitialMessageCount + 1);
     });
 
     it('Step Six Tests: should edit the new message', () => {
@@ -68,7 +69,7 @@ describe("Web API (POST) Exercises", () => {
       cy.contains('UPDATED TEST TITLE');
       cy.contains('UPDATED TEST MESSAGE TEXT');
       cy.get('.btnDeleteMessage').last().click();
-      cy.get('.topic-message').should('have.length', 4);
+      cy.get('.topic-message').should('have.length', topic1InitialMessageCount);
     })
 
   });
