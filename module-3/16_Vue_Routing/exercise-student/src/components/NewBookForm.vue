@@ -23,6 +23,7 @@ export default {
     methods: {
         saveBook() {
             this.$store.commit('SAVE_BOOK', this.book);
+            this.$router.push({ name:"myBooks"});
             this.book = {
                 title: '',
                 author: '',
@@ -30,6 +31,9 @@ export default {
                 isbn: ''
             };
         }
+
+      
+
     }
 }
 </script>
