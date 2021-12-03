@@ -1,6 +1,6 @@
 <template>
   <div class="messages">
-    <topic-details v-bind:topic-id="$route.params.id" />
+    <topic-details v-bind:topicId="$route.params.id" />
   </div>
 </template>
 

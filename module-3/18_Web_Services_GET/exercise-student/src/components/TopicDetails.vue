@@ -1,31 +1,52 @@
 <template>
   <div class="topic-details">
+    
     <h1>{{ topic.title }}</h1>
+    
     <div v-for="message in topic.messages" v-bind:key="message.id" class="topic-message bubble">
+     
       <h3 class="message-title">{{ message.title }}</h3>
+    
       <p class="message-body">
         {{ message.messageText }}
       </p>
+      
     </div>
   </div>
 </template>
 
 <script>
+import topicService from "@/services/TopicService";
 export default {
   name: 'topic-details',
-  props: {
-    'topicId': Number
-  },
+  props: [
+    'topicId'
+  ],
   data() {
     return {
       topic: {
         id: 0,
         title: '',
         messages: []
-      },
+      }
+    };
+  },
+
+  methods:{
+    viewTopic(id) {
+      this.router.push(`/topics/${id}`);
     }
+  },
+
+
+  created() {
+    topicService.getTopicsById(this.topicId).then((response) => {
+      this.topic = response.data;
+    });
   }
-}
+
+
+};
 </script>
 
 <style>
